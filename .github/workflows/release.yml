@@ -25,6 +25,13 @@ jobs:
         with:
           bundler-cache: true
       - name: Release
-        run: npx semantic-release --dry-run --branch main
+        run: |
+          npm install --global semantic-release @semantic-release/changelog @semantic-release/git
+          npx semantic-release --dry-run --branches main --plugins \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator \
+            @semantic-release/changelog \
+            @semantic-release/github \
+            @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
