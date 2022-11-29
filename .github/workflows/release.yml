@@ -26,13 +26,9 @@ jobs:
           bundler-cache: true
       - name: Release
         run: |
-          echo 'hello'
-          npm install --global semantic-release @semantic-release/changelog @semantic-release/git
-          npx semantic-release --branches main --plugins \
-            @semantic-release/commit-analyzer \
-            @semantic-release/release-notes-generator \
-            @semantic-release/changelog \
-            @semantic-release/github \
-            @semantic-release/git
+          npm i release-please -g
+          release-please \
+            --token $GITHUB_TOKEN \
+            --repo-url=benoittgt/semantic-release-rails-trigger
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
