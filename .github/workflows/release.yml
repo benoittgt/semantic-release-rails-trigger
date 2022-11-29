@@ -25,6 +25,6 @@ jobs:
         with:
           bundler-cache: true
       - name: Release
-        run: npx semantic-release --dry-run
+        run: npx semantic-release --dry-run --branch main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
