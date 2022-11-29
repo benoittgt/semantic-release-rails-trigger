@@ -27,7 +27,7 @@ jobs:
       - name: Release
         run: |
           npm install --global semantic-release @semantic-release/changelog @semantic-release/git
-          npx semantic-release --dry-run --branches main --plugins \
+          npx semantic-release --branches main --plugins \
             @semantic-release/commit-analyzer \
             @semantic-release/release-notes-generator \
             @semantic-release/changelog \
