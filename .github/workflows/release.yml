@@ -26,7 +26,8 @@ jobs:
           bundler-cache: true
       - name: Release
         run: |
-          npm_config_yes=true npx semantic-release --dry-run --branches main --plugins \
+          npm install --global semantic-release @semantic-release/changelog @semantic-release/git
+          npx semantic-release --dry-run --branches main --plugins \
             @semantic-release/commit-analyzer \
             @semantic-release/release-notes-generator \
             @semantic-release/changelog \
